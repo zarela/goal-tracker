@@ -59,6 +59,11 @@ body: String
 
 ### Models
 
+* user.js includes:
+ * Configuration with required dependencies
+ * Schemas: User, Reward and Goal
+ * User model, which has the other two schemas embedded is exported
+
 ### Controllers
 
 ### Views
