@@ -11,16 +11,16 @@ var LocalStrategy = require('passport-local').Strategy;
 
 //MODELS: This is requiring from the user.js schema
 //==============================================
-// var User = require('./models/user');
+var User = require('./models/user');
 
 //MODULES: ===============================
 //To connect from controlers
 // var usersController = require('./controllers/users.js')
-// var app = express();
+var app = express();
 
 // DATABASE CONNECTION
 // ==================================
-// mongoose.connect('mongodb://localhost/auth-test-app');
+mongoose.connect('mongodb://localhost/goal-digger');
 
 // MIDDLEWARE / CONFIGURATION
 // ==================================
@@ -45,7 +45,7 @@ passport.deserializeUser(User.deserializeUser());
 
 //ROUTING MIDDLEWARE
 //==================================
-app.use('/users', usersController);
+// app.use('/users', usersController);
 
 // ROUTES
 // ==================================

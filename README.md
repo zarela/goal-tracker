@@ -28,11 +28,11 @@ As a user I would like to:
 ## Entity Relationship Diagrams (Database Modeling)
 
 User = {
-username: String
+username: String,
 password: String
 goals: [goalSchema],
 rewards:[rewardSchema],
-total points: Number,
+totalPoints: Number,
 history: (accomplishments)
 }
 
