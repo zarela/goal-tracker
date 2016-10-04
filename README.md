@@ -54,8 +54,8 @@ body: String
 ### Public
 
 * CSS file includes:
-  ** style.css as a main css stylesheet file
-  ** reset.css code to help maintain consistency across multiple browsers. Source code taken from: http://meyerweb.com/eric/tools/css/reset/reset.css
+ * style.css as a main css stylesheet file
+ * reset.css code to help maintain consistency across multiple browsers. Source code taken from: http://meyerweb.com/eric/tools/css/reset/reset.css
 
 ### Models
 
