@@ -53,7 +53,6 @@ app.use('/users', usersController);
 var hello = function(req, res, next){
   console.log("Hello");
   // console.log(req);
-
   next();
 };
 
