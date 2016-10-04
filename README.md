@@ -37,14 +37,14 @@ history: (accomplishments)
 }
 
 Goal = {
-points:Number,
+goalPoints:Number,
 completed: Boolean,
 deadline: Date,
 body: String
 }
 
 Reward = {
-points: Number,
+rewardPoints: Number,
 achieved: Boolean,
 body: String
 }
