@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var passportLocalMongoose = require('passport-local-mongoose');
+var uniqueValidator = require('mongoose-unique-validator'); //*****
 // mongoose.Promise = global.Promise;
 
 var Schema = mongoose.Schema;
@@ -27,6 +28,7 @@ var userSchema = new Schema({
 
 
 userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(uniqueValidator); //************
 // goalSchema.plugin(passportLocalMongoose); //Maybe back
 // rewardSchema.plugin(passportLocalMongoose); //Maybe back
 
