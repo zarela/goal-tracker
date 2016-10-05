@@ -27,8 +27,8 @@ var userSchema = new Schema({
 
 
 userSchema.plugin(passportLocalMongoose);
-goalSchema.plugin(passportLocalMongoose);
-rewardSchema.plugin(passportLocalMongoose);
+// goalSchema.plugin(passportLocalMongoose); //Maybe back
+// rewardSchema.plugin(passportLocalMongoose); //Maybe back
 
 
 var User = mongoose.model("User", userSchema);

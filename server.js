@@ -7,6 +7,7 @@ var logger = require('morgan');
 var hbs = require('hbs');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var methodOveride = require('method-override');
 var LocalStrategy = require('passport-local').Strategy;
 mongoose.Promise = global.Promise; //*******
 
@@ -36,7 +37,7 @@ console.log("***DATABASE HAS BEEN CONNECTED***");
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(methodOveride('_method'));
 app.set('view engine', 'hbs');
 
 //PASSPORT
@@ -56,7 +57,7 @@ passport.deserializeUser(User.deserializeUser());
 
 //ROUTING MIDDLEWARE
 //==================================
-// app.use('/users', usersController);
+app.use('/users', usersController); //********NS
 
 // ROUTES
 // ==================================
@@ -73,7 +74,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use('/', require('./controllers/index.js'));
-app.use('/users', require('./controllers/users.js'));
+app.use('/users', require('./controllers/users.js'));//*****maybe
 
 
 // SERVER LISTENING ON PORT

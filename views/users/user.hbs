@@ -1,5 +1,10 @@
 <h1>Hello {{user.username}}!</h1>
 
-<form class="" action="user/logout?_method=delete" method="POST">
-  <button type="button" name="Logout">Logout</button>
+<form method="POST" action="/users/user/logout?_method=DELETE">
+  <button type="submit" name="Logout">Logout</button>
 </form>
+
+
+<!-- <li><a href="/users/logout">logout</a></li>
+
+<li><a href="/user/logout">logout</a></li> -->

@@ -11,6 +11,7 @@ var User = require('../models/user');
 
 //Register with Authentication
 router.post('/register', function(req, res){
+  console.log(req.body)
   User.register(new User(
     {username: req.body.username}),
     req.body.password,
@@ -25,6 +26,27 @@ router.post('/register', function(req, res){
     });
   });
 });
+
+//trying code
+// router.post('/register', function(req, res){
+//   User.register(
+//     new User({
+//       username: req.body.username
+//     }),
+//     req.body.password,
+//     function(err, user){
+//       if (err) {
+//         console.log(err);
+//         return res.status(400).send('Could not register');
+//       } else {
+//         console.log('no error when creating ', user);
+//         req.flash('info', 'Registration was a success!');
+//       } // end if else
+//       res.redirect('/');
+//     } // end function
+//   ) // end User.register
+// });
+
 
 router.post('/login',
   passport.authenticate('local', {failureRedirect: '/'}),
@@ -47,10 +69,17 @@ router.post('/login',
   });
 
   //Logout in progress ***** Not Working
-  router.delete('/logout', function(req, res){
+  // router.delete('/logout', function(req, res){
+  //   req.logout();
+  //   res.redirect('/');
+  // });
+
+  router.delete('/user/logout', function(req, res) {
     req.logout();
     res.redirect('/');
   });
+
+
 
   //Authentication
   var authenticate = function(req, res, next) {
