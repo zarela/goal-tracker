@@ -28,8 +28,6 @@ router.post('/register', function(req, res){
 });
 
 
-
-
 //trying code
 // router.post('/register', function(req, res){
 //   User.register(
@@ -60,7 +58,8 @@ router.post('/login',
       User.findOne({username: req.session.passport.user}).exec()
       .then(function(user){
         //res.redirect('./home/'+ req.user._id);
-          res.redirect('./'+ req.user._id); //This will go to user page
+        console.log(req.session);
+        res.redirect('./'+ req.user._id); //This will go to user page
         //res.redirect('./user'+ req.user._id); //This goes to index
         //res.send("Login Successful");
       })
@@ -71,16 +70,6 @@ router.post('/login',
     })
   });
 
-  //Logout in progress ***** Not Working
-  // router.delete('/logout', function(req, res){
-  //   req.logout();
-  //   res.redirect('/');
-  // });
-
-  // router.delete('/user/logout', function(req, res) {
-  //   req.logout();
-  //   res.redirect('/');
-  // });
 
   router.delete('/user/logout', function(req, res) {
     req.logout();
