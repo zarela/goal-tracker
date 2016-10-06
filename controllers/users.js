@@ -27,6 +27,9 @@ router.post('/register', function(req, res){
   });
 });
 
+
+
+
 //trying code
 // router.post('/register', function(req, res){
 //   User.register(
@@ -74,11 +77,15 @@ router.post('/login',
   //   res.redirect('/');
   // });
 
+  // router.delete('/user/logout', function(req, res) {
+  //   req.logout();
+  //   res.redirect('/');
+  // });
+
   router.delete('/user/logout', function(req, res) {
     req.logout();
     res.redirect('/');
   });
-
 
 
   //Authentication
