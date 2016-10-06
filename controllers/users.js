@@ -57,7 +57,7 @@ router.post('/login',
       User.findOne({username: req.session.passport.user}).exec()
       .then(function(user){
         //res.redirect('./home/'+ req.user._id);
-          res.redirect('./user/'+ req.user._id); //This will go to user page
+          res.redirect('./'+ req.user._id); //This will go to user page
         //res.redirect('./user'+ req.user._id); //This goes to index
         //res.send("Login Successful");
       })
@@ -91,7 +91,7 @@ router.post('/login',
   }
 
   //User page without Authentication
-  router.get('/user/:id', function(req, res){
+  router.get('/:id', function(req, res){
     User.findById(req.params.id, function(err, user){
       console.log(user);
       // res.send(author);
