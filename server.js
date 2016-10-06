@@ -57,7 +57,7 @@ passport.deserializeUser(User.deserializeUser());
 
 //ROUTING MIDDLEWARE
 //==================================
-app.use('/users', usersController); //********NS
+// app.use('/users', usersController); //********NS
 
 // ROUTES
 // ==================================
@@ -74,7 +74,7 @@ app.use('/users', usersController); //********NS
 
 
 app.use('/', require('./controllers/index.js'));
-app.use('/users', require('./controllers/users.js'));//*****maybe
+app.use('/users', require('./controllers/users-auth.js'));//*****maybe
 
 
 // SERVER LISTENING ON PORT
