@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise; //*******
 //MODELS: This is requiring from the user.js schema
 //==============================================
 var User = require('./models/user');
-var usersController = require('./controllers/index.js'); //*****
+// var usersController = require('./controllers/index.js'); //*****
 
 //MODULES: ===============================
 //To connect from controlers
@@ -24,7 +24,12 @@ var app = express();
 // DATABASE CONNECTION
 // ==================================
 var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/goal-digger');
+// mongoose.connect('mongodb://localhost/goal-digger');
+
+//Added this for url heroku
+var mongoURI =  process.env.MONGODB_URI || 'mongodb://localhost/goal-digger';
+mongoose.connect(mongoURI);
+
 
 db.on('error', function(err){console.log(err);});
 
@@ -79,8 +84,11 @@ app.use('/users', require('./controllers/users-auth.js'));//*****maybe
 
 // SERVER LISTENING ON PORT
 // ==================================
-app.listen(4000,function(){
-  console.log("====================================");
-  console.log("GOAL DIGGER LISTENING ON PORT 4000");
-  console.log("====================================")
-})
+
+app.listen(process.env.PORT || 4000 );
+
+// app.listen(4000,function(){
+//   console.log("====================================");
+//   console.log("GOAL DIGGER LISTENING ON PORT 4000");
+//   console.log("====================================")
+// })
