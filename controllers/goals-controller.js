@@ -10,14 +10,17 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 
 
+// router.get('/:id/new-goal', function(req, res){
+//     res.render('./goals/new-goal');
+// });
+
 router.get('/:id/new-goal', function(req, res){
-
-    res.render('./goals/new-goal');
-
-
+  User.findById(req.params.id, function(err, user){
+    console.log(user);
+    // res.send("Created New Goal");
+    res.render('./goals/new-goal', {user:user});
+  });
 });
-
-
 
 
 
