@@ -4,6 +4,24 @@
   <button type="submit" name="Logout">Logout</button>
 </form> -->
 
+
+<h2>Goals</h2>
+
+<a id="newGoal" href="/goals/{{user._id}}/new-goal">New Goal</a>
+<!-- {{#each authors}}
+    <div class="goal">
+        <div class="goalTitle"><a href="/user/{{_id}}">{{name}}</a></div>
+            {{#each reminders}}
+                <p class="goal">{{body}}</p>
+            {{/each}}
+            <br>
+        </div>
+{{/each}} -->
+
+<br>
+<br>
+
+
 <form method="POST" action="user/logout?_method=DELETE">
   <button type="submit" name="Logout">Logout</button>
 </form>

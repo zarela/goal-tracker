@@ -80,15 +80,15 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use('/', require('./controllers/index.js'));
 app.use('/users', require('./controllers/users-auth.js'));//*****maybe
-
+app.use('/goals', require('./controllers/goals-controller.js'))
 
 // SERVER LISTENING ON PORT
 // ==================================
 
-app.listen(process.env.PORT || 4000 );
+// app.listen(process.env.PORT || 4000 ); // ******This works for Heroku
 
-// app.listen(4000,function(){
-//   console.log("====================================");
-//   console.log("GOAL DIGGER LISTENING ON PORT 4000");
-//   console.log("====================================")
-// })
+app.listen(process.env.PORT ||4000,function(){
+  console.log("====================================");
+  console.log("GOAL DIGGER LISTENING ON PORT 4000");
+  console.log("====================================")
+})

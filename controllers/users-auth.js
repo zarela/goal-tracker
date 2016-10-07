@@ -77,6 +77,23 @@ router.post('/login',
   });
 
 
+  //********test to display other users
+
+    // router.get('/', (req, res) => {
+    //   var query = User.find({});
+    //
+    //   query.then(function(users) {
+    //     res.render('users/index.hbs', { users: users, user: req.user})
+    //   })
+    //   .catch(function(err) {
+    //     console.log(err)
+    //   });
+    // });
+
+//**********************
+
+
+
   //Authentication
   var authenticate = function(req, res, next) {
     if (!req.user || req.user._id != req.params.id) {
