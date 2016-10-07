@@ -10,8 +10,16 @@
 <div>
 {{#each user.goals}}
   <div class="goal-show-each">
-    <p>Goal:{{body}}</p>
-    <form method="post" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
+    <p>Goal:{{body}} {{goalPoints}}</p>
+
+
+<a id="newGoal" href="/goals/{{user._id}}/show-goal">Show Goal</a>
+
+    <!-- <form method="POST" action="/users/{{../user._id}}/goals/{{_id}}?_method=PUT">
+        <input type="submit" value="Show">
+    </form> -->
+
+    <form method="POST" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
         <input type="submit" value="Done!">
     </form>
   </div>
@@ -21,37 +29,24 @@
 
 
 
-
-
-
-
-
-
-
 <div id="goal-new">
   <!-- <h3>Add New Goal</h3> -->
     <form action="/users/{{user._id}}/goals" method="post">
-        <label>New Goal</label>
+        <label>New Goal</label><br>
         <input type="text" name="body">
+
+        <input type="radio" name="goalPoints" value="1"> 1
+        <input type="radio" name="goalPoints" value="5"> 5
+        <input type="radio" name="goalPoints" value="10"> 10
+
+        <br>
         <input type="submit">
     </form>
 </div>
 <br>
 
 
-
-
-
-
-<!-- <div id="goal-show">
-    <form action="/goals/{{user._id}}/show-goal" method="post">
-        <label>Body</label>
-        <input type="submit" value="SHOW">
-    </form>
-</div> -->
-
-
-<a id="newGoal" href="/goals/{{user._id}}/show-goal">Show Goal</a>
+<!-- <a id="newGoal" href="/goals/{{user._id}}/show-goal">Show Goal</a> -->
 <!-- {{#each authors}}
     <div class="goal">
         <div class="goalTitle"><a href="/user/{{_id}}">{{name}}</a></div>
@@ -64,7 +59,6 @@
 
 <br>
 <br>
-
 
 <form method="POST" action="user/logout?_method=DELETE">
   <button type="submit" name="Logout">Logout</button>

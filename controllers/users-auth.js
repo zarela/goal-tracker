@@ -77,54 +77,23 @@ router.post('/login',
     res.redirect('/');
   });
 
-//USER NEW GOAL
+//RECORDING USERS GOALS
 //=====================================================
-//creating new Goal
-  // router.post('/:id/new', function(req, res){
-  //   var newGoal = req.body;
-  //   User.findOneAndUpdate({
-  //     // $push
-  //   })
-  //   res.redirect('/users/' + req.params.id);
-  // });
 
-
-// Makes new goal but does not print *********
+//Creating and Saving new goles
   router.post('/:id/goals', function(req, res){
     User.findById(req.params.id, function(err, user){
       user.goals.push(new Goal(
-        {body: req.body.body}))
+        {body: req.body.body,
+        goalPoints: req.body.goalPoints  
+         }))
       user.save(function(err){
         res.redirect(`/users/${user.id}`);
       });
     });
   });
 
-
-//Help from Tom
-  // router.post('/:id/goals', function(req, res){
-  //   User.findById(req.params.id, function(err, user){
-  //   //  console.log('in /id/goals, req.body.goalText is ',req.body.goalText);
-  //
-  //   console.log('in /id/goals, user.goals is ', user.goals);
-  //   //user.goals.push('foo');
-  //   user.goals.push(new Goal({
-  //    goalPoints:5,
-  //    completed: false,
-  //    deadline: new Date('01/01/2015'),
-  //    body: 'make a robot'
-  //  }));
-  //   console.log('in /id/goals, user.goals is the second time ', user.goals);
-  //
-  //     //user.save(function(err){
-  //     res.redirect(`/users/${user.id}`);
-  //   //  });
-  //   });
-  // });
-
-
-
-//Deleting goal *********
+//Deleting goals
 router.delete('/:userId/goals/:id', function(req, res){
   User.findByIdAndUpdate(req.params.userId, {
     $pull: {
@@ -134,9 +103,6 @@ router.delete('/:userId/goals/:id', function(req, res){
     res.redirect(`/users/${req.params.userId}`);
   });
 });
-
-
-
 
   // router.post('/:id/new', function(req, res){
   //   var newGoal = req.body;
