@@ -8,8 +8,8 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
-var Goal = require('../models/user');
-var Reward = require('../models/user');
+var Goal = require('../models/goal');
+var Reward = require('../models/reward');
 
 //AUTHENTICATION
 //==================================================
@@ -89,9 +89,10 @@ router.post('/login',
   // });
 
 
-//Makes new goal but does not print *********
+// Makes new goal but does not print *********
   router.post('/:id/goals', function(req, res){
     User.findById(req.params.id, function(err, user){
+      console.log(req.body);
       user.goals.push(new Goal(
         {body: req.body.body}))
       user.save(function(err){
@@ -99,6 +100,30 @@ router.post('/login',
       });
     });
   });
+
+
+//Help from Tom
+  // router.post('/:id/goals', function(req, res){
+  //   User.findById(req.params.id, function(err, user){
+  //   //  console.log('in /id/goals, req.body.goalText is ',req.body.goalText);
+  //
+  //   console.log('in /id/goals, user.goals is ', user.goals);
+  //   //user.goals.push('foo');
+  //   user.goals.push(new Goal({
+  //    goalPoints:5,
+  //    completed: false,
+  //    deadline: new Date('01/01/2015'),
+  //    body: 'make a robot'
+  //  }));
+  //   console.log('in /id/goals, user.goals is the second time ', user.goals);
+  //
+  //     //user.save(function(err){
+  //     res.redirect(`/users/${user.id}`);
+  //   //  });
+  //   });
+  // });
+
+
 
 //Deleting goal *********
 router.delete('/:userId/goals/:id', function(req, res){

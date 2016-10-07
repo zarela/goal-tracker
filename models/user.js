@@ -3,20 +3,24 @@ var passportLocalMongoose = require('passport-local-mongoose');
 var uniqueValidator = require('mongoose-unique-validator'); //*****
 // mongoose.Promise = global.Promise;
 
+var goalSchema = require('./goal.js').schema;
+var rewardSchema = require('./reward.js').schema;
+
+
 var Schema = mongoose.Schema;
 
-var goalSchema = new Schema({
-  goalPoints:Number,
-  completed: Boolean,
-  deadline: Date,
-  body: String
-});
-
-var rewardSchema = new Schema({
-  rewardPoints: Number,
-  achieved: Boolean,
-  body: String
-});
+// var goalSchema = new Schema({
+//   goalPoints:Number,
+//   completed: Boolean,
+//   deadline: Date,
+//   body: String
+// });
+//
+// var rewardSchema = new Schema({
+//   rewardPoints: Number,
+//   achieved: Boolean,
+//   body: String
+// });
 
 var userSchema = new Schema({
   username: String,
@@ -29,17 +33,17 @@ var userSchema = new Schema({
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(uniqueValidator); //************
-goalSchema.plugin(passportLocalMongoose); //Maybe back
-rewardSchema.plugin(passportLocalMongoose); //Maybe back
+//goalSchema.plugin(passportLocalMongoose); //Maybe back
+//rewardSchema.plugin(passportLocalMongoose); //Maybe back
 
 
-var Goal = mongoose.model("Goal", goalSchema);
-var Reward = mongoose.model("Reward", rewardSchema);
+// var Goal = mongoose.model("Goal", goalSchema);
+// var Reward = mongoose.model("Reward", rewardSchema);
 var User = mongoose.model("User", userSchema);
 
-
-module.exports = Goal;
-module.exports = Reward;
+//
+// module.exports = Goal;
+// module.exports = Reward;
 module.exports = User;
 // var UserModel = mongoose.model("User", userSchema);
 // var GoalModel = mongoose.model("Goal", goalSchema);
