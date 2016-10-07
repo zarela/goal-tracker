@@ -92,7 +92,6 @@ router.post('/login',
 // Makes new goal but does not print *********
   router.post('/:id/goals', function(req, res){
     User.findById(req.params.id, function(err, user){
-      console.log(req.body);
       user.goals.push(new Goal(
         {body: req.body.body}))
       user.save(function(err){

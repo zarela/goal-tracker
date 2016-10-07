@@ -10,6 +10,7 @@ var passport = require('passport');
 var methodOveride = require('method-override');
 var LocalStrategy = require('passport-local').Strategy;
 mongoose.Promise = global.Promise; //*******
+var app = express();
 
 //MODELS: This is requiring from the user.js schema
 //==============================================
@@ -19,12 +20,13 @@ var User = require('./models/user');
 //MODULES: ===============================
 //To connect from controlers
 // var usersController = require('./controllers/users.js')
-var app = express();
+
 
 // DATABASE CONNECTION
 // ==================================
 var db = mongoose.connection;
 // mongoose.connect('mongodb://localhost/goal-digger');
+
 
 //Added this for url heroku
 var mongoURI =  process.env.MONGODB_URI || 'mongodb://localhost/goal-digger';
@@ -44,6 +46,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOveride('_method'));
 app.set('view engine', 'hbs');
+app.use(express.static(__dirname + '/public'));
+
 
 //PASSPORT
 //==============================================

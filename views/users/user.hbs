@@ -18,15 +18,31 @@
 {{/each}}
 </div>
 <br>
+
+
+
+
+
+
+
+
+
+
 <div id="goal-new">
   <!-- <h3>Add New Goal</h3> -->
     <form action="/users/{{user._id}}/goals" method="post">
         <label>New Goal</label>
-        <input type="text" name="goalText">
+        <input type="text" name="body">
         <input type="submit">
     </form>
 </div>
 <br>
+
+
+
+
+
+
 <!-- <div id="goal-show">
     <form action="/goals/{{user._id}}/show-goal" method="post">
         <label>Body</label>
