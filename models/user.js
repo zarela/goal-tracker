@@ -29,13 +29,18 @@ var userSchema = new Schema({
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(uniqueValidator); //************
-// goalSchema.plugin(passportLocalMongoose); //Maybe back
-// rewardSchema.plugin(passportLocalMongoose); //Maybe back
+goalSchema.plugin(passportLocalMongoose); //Maybe back
+rewardSchema.plugin(passportLocalMongoose); //Maybe back
 
 
+var Goal = mongoose.model("Goal", goalSchema);
+var Reward = mongoose.model("Reward", rewardSchema);
 var User = mongoose.model("User", userSchema);
-module.exports = User;
 
+
+module.exports = Goal;
+module.exports = Reward;
+module.exports = User;
 // var UserModel = mongoose.model("User", userSchema);
 // var GoalModel = mongoose.model("Goal", goalSchema);
 // var RewardModel = mongoose.model("Reward", rewardSchema);

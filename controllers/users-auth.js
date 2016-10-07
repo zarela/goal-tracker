@@ -8,7 +8,11 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
+var Goal = require('../models/user');
+var Reward = require('../models/user');
 
+//AUTHENTICATION
+//==================================================
 //Register with Authentication
 router.post('/register', function(req, res){
   console.log(req.body)
@@ -26,7 +30,6 @@ router.post('/register', function(req, res){
     });
   });
 });
-
 
 //trying code
 // router.post('/register', function(req, res){
@@ -47,7 +50,6 @@ router.post('/register', function(req, res){
 //     } // end function
 //   ) // end User.register
 // });
-
 
 router.post('/login',
   passport.authenticate('local', {failureRedirect: '/'}),
@@ -70,27 +72,69 @@ router.post('/login',
     })
   });
 
-
   router.delete('/user/logout', function(req, res) {
     req.logout();
     res.redirect('/');
   });
 
+//USER NEW GOAL
+//=====================================================
+//creating new Goal
+  // router.post('/:id/new', function(req, res){
+  //   var newGoal = req.body;
+  //   User.findOneAndUpdate({
+  //     // $push
+  //   })
+  //   res.redirect('/users/' + req.params.id);
+  // });
 
-  //********test to display other users
 
-    // router.get('/', (req, res) => {
-    //   var query = User.find({});
-    //
-    //   query.then(function(users) {
-    //     res.render('users/index.hbs', { users: users, user: req.user})
-    //   })
-    //   .catch(function(err) {
-    //     console.log(err)
-    //   });
-    // });
+//Makes new goal but does not print *********
+  router.post('/:id/goals', function(req, res){
+    User.findById(req.params.id, function(err, user){
+      user.goals.push(new Goal({body: req.body.body}))
+      user.save(function(err){
+        res.redirect(`/users/${user.id}`);
+      });
+    });
+  });
 
-//**********************
+//Deleting goal *********
+router.delete('/:userId/goals/:id', function(req, res){
+  User.findByIdAndUpdate(req.params.userId, {
+    $pull: {
+      goals: {_id: req.params.id}
+    }
+  },function(err){
+    res.redirect(`/users/${req.params.userId}`);
+  });
+});
+
+
+
+
+  // router.post('/:id/new', function(req, res){
+  //   var newGoal = req.body;
+  //   User.findOneAndUpdate({
+  //     user.goals.push(new Goal({body: req.body.body}))
+  //     user.save(function(err){
+  //       res.redirect('/users/' + req.params.id);
+  //     })
+  //   })
+  // });
+
+  // router.post('/:id/new', function(req, res){
+  //   var newGoal = req.body;
+  //   User.findOneAndUpdate(newGoal, function(req, res){
+  //     user.goals.push(new Goal(
+  //       {body: req.body.body}
+  //     ));
+  //     user.save(function(err){
+  //       res.redirect('/users/' + req.params.id);
+  //       // res.redirect(`/users/${user.id}`);
+  //     })
+  //   })
+  // });
 
 
 
@@ -111,8 +155,6 @@ router.post('/login',
       res.render('users/user', {user:user});
     });
   });
-
-
 
 
 module.exports = router;

@@ -5,9 +5,37 @@
 </form> -->
 
 
-<h2>Goals</h2>
+<h2>Your Goals</h2>
 
-<a id="newGoal" href="/goals/{{user._id}}/new-goal">New Goal</a>
+<div>
+{{#each user.goals}}
+  <div class="goal-show-each">
+    <p>{{body}}</p>
+    <form method="post" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
+        <input type="submit" value="Done!">
+    </form>
+  </div>
+{{/each}}
+</div>
+
+<div id="goal-new">
+  <h3>Add New Goal</h3>
+    <form action="/users/{{user._id}}/goals" method="post">
+        <label>Description</label>
+        <input type="text" name="body">
+        <input type="submit">
+    </form>
+</div>
+<br>
+<!-- <div id="goal-show">
+    <form action="/goals/{{user._id}}/show-goal" method="post">
+        <label>Body</label>
+        <input type="submit" value="SHOW">
+    </form>
+</div> -->
+
+
+<a id="newGoal" href="/goals/{{user._id}}/show-goal">Show Goal</a>
 <!-- {{#each authors}}
     <div class="goal">
         <div class="goalTitle"><a href="/user/{{_id}}">{{name}}</a></div>

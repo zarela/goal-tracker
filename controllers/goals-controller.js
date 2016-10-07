@@ -8,19 +8,22 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
+var Goal = require('../models/user');
+var Reward = require('../models/user');
 
 
 // router.get('/:id/new-goal', function(req, res){
 //     res.render('./goals/new-goal');
 // });
 
-router.get('/:id/new-goal', function(req, res){
+router.get('/:id/show-goal', function(req, res){
   User.findById(req.params.id, function(err, user){
     console.log(user);
     // res.send("Created New Goal");
-    res.render('./goals/new-goal', {user:user});
+    res.render('./goals/show-goal', {user:user});
   });
 });
+
 
 
 
