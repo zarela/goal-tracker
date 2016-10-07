@@ -10,18 +10,18 @@
 <div>
 {{#each user.goals}}
   <div class="goal-show-each">
-    <p>{{body}}</p>
+    <p>Goal:{{body}}</p>
     <form method="post" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
         <input type="submit" value="Done!">
     </form>
   </div>
 {{/each}}
 </div>
-
+<br>
 <div id="goal-new">
-  <h3>Add New Goal</h3>
+  <!-- <h3>Add New Goal</h3> -->
     <form action="/users/{{user._id}}/goals" method="post">
-        <label>Description</label>
+        <label>New Goal</label>
         <input type="text" name="body">
         <input type="submit">
     </form>
