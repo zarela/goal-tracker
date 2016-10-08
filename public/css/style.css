@@ -1,16 +1,33 @@
-/*body {
-  padding: 2.5% 10%;
-  background-color: #cdcdde;
-  font-family: "Montserrat", Helvetica, sans-serif;
-  font-size: 18px;
-}*/
 body{
-  background:pink;
+  background: #c0f5ff;
 }
 h1{
   font-family: 'Monofett', cursive;
   font-size: 48px;
 }
-h2{
+h2,a{
   font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+}
+.header{
+  display: inline-flex;
+  width: 100%;
+  background-color: #6496c8;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px #27496d;
+}
+img{
+padding: 1em;
+}
+.home-text{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+}
+.login{
+  /*color: #fff;
+background-color: #6496c8;
+border: none;
+border-radius: 15px;
+box-shadow: 0 10px #27496d;*/
 }
