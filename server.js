@@ -84,7 +84,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use('/', require('./controllers/index.js'));
 app.use('/users', require('./controllers/users-auth.js'));//*****maybe
-app.use('/goals', require('./controllers/goals-controller.js'))
+// app.use('/goals', require('./controllers/goals-controller.js'))
 
 // SERVER LISTENING ON PORT
 // ==================================

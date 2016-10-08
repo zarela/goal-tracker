@@ -85,13 +85,23 @@ router.post('/login',
     User.findById(req.params.id, function(err, user){
       user.goals.push(new Goal(
         {body: req.body.body,
-        goalPoints: req.body.goalPoints  
+        goalPoints: req.body.goalPoints
          }))
       user.save(function(err){
         res.redirect(`/users/${user.id}`);
       });
     });
   });
+
+//Show goals page
+router.get('/:userId/show-goal/:id', function(req, res){
+  User.findById(req.params.userId, function(err, user){
+    console.log(user);
+    // res.send("Created New Goal");
+    // res.render('/users/show-goal', {user:user});
+    res.render('/users/show-goal.hbs');
+  });
+});
 
 //Deleting goals
 router.delete('/:userId/goals/:id', function(req, res){
@@ -106,16 +116,6 @@ router.delete('/:userId/goals/:id', function(req, res){
 
   // router.post('/:id/new', function(req, res){
   //   var newGoal = req.body;
-  //   User.findOneAndUpdate({
-  //     user.goals.push(new Goal({body: req.body.body}))
-  //     user.save(function(err){
-  //       res.redirect('/users/' + req.params.id);
-  //     })
-  //   })
-  // });
-
-  // router.post('/:id/new', function(req, res){
-  //   var newGoal = req.body;
   //   User.findOneAndUpdate(newGoal, function(req, res){
   //     user.goals.push(new Goal(
   //       {body: req.body.body}
@@ -126,8 +126,6 @@ router.delete('/:userId/goals/:id', function(req, res){
   //     })
   //   })
   // });
-
-
 
   //Authentication
   var authenticate = function(req, res, next) {
@@ -146,6 +144,5 @@ router.delete('/:userId/goals/:id', function(req, res){
       res.render('users/user', {user:user});
     });
   });
-
 
 module.exports = router;

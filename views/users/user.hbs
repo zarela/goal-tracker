@@ -12,10 +12,11 @@
   <div class="goal-show-each">
     <p>&#9829 {{body}} {{goalPoints}}</p>
 
+<!-- maybe back -->
+<!-- <a href="/goals/{{user._id}}/show-goal">Show Goal</a> -->
 
-<a href="/goals/{{user._id}}/show-goal">Show Goal</a>
 
-    <form action="/goals/{{goals._id}}/show-goal" method="POST">
+    <form action="./{{../user._id}}/show-goal/{{_id}}" method="POST">
         <input type="submit" value="Show">
     </form>
 

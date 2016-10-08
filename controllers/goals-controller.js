@@ -16,13 +16,13 @@ var Reward = require('../models/reward');
 //     res.render('./goals/new-goal');
 // });
 
-router.get('/:id/show-goal', function(req, res){
-  User.findById(req.params.id, function(err, user){
-    console.log(user);
-    // res.send("Created New Goal");
-    res.render('/goals/show-goal', {user:user});
-  });
-});
+// router.get('/:id/show-goal', function(req, res){
+//   User.findById(req.params.id, function(err, user){
+//     console.log(user);
+//     // res.send("Created New Goal");
+//     res.render('/goals/show-goal', {user:user});
+//   });
+// });
 
 
 
