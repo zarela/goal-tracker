@@ -94,14 +94,25 @@ router.post('/login',
   });
 
 //Show goals page
-router.get('/:userId/show-goal/:id', function(req, res){
+// router.get('/:userId/show-goal/:id', function(req, res){
+//   User.findById(req.params.userId, function(err, user){
+//     console.log(user);
+//     res.send("Created New Goal");
+//     // res.render('/users/show-goal', {user:user});
+//     // res.render('/users/show-goal.hbs');
+//   });
+// });
+
+router.post('/:userId/show-goal/:id', function(req, res){
   User.findById(req.params.userId, function(err, user){
     console.log(user);
     // res.send("Created New Goal");
     // res.render('/users/show-goal', {user:user});
-    res.render('/users/show-goal.hbs');
+    res.render('users/show');
   });
 });
+
+
 
 //Deleting goals
 router.delete('/:userId/goals/:id', function(req, res){
