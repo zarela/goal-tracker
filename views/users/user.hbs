@@ -1,4 +1,4 @@
-<h1>Hello {{user.username}}!</h1>
+<h2>Hello {{user.username}}!</h2>
 
 <!-- <form method="POST" action="/users/user/logout?_method=DELETE">
   <button type="submit" name="Logout">Logout</button>
@@ -10,17 +10,20 @@
 <div>
 {{#each user.goals}}
   <div class="goal-show-each">
-    <p>Goal:{{body}} {{goalPoints}}</p>
+    <p>&#9829 {{body}} {{goalPoints}}</p>
 
 
-<a id="newGoal" href="/goals/{{user._id}}/show-goal">Show Goal</a>
+<a href="/goals/{{user._id}}/show-goal">Show Goal</a>
 
-    <!-- <form method="POST" action="/users/{{../user._id}}/goals/{{_id}}?_method=PUT">
+    <form action="/goals/{{goals._id}}/show-goal" method="POST">
         <input type="submit" value="Show">
-    </form> -->
+    </form>
+
+
+<!-- This works -->
 
     <form method="POST" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
-        <input type="submit" value="Done!">
+        <input type="submit" value="Done">
     </form>
   </div>
 {{/each}}
