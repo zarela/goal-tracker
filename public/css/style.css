@@ -41,8 +41,27 @@ box-shadow: 0 10px #27496d;*/
 .user-controllers{
   display: inline-flex;
 }
-.goals-board{
+.single-board{
+  position: relative;
+  /*display: inline-flex;*/
+  align-content:center;
+
   background-color: #6496c8;
+  border: none;
   border-radius: 15px;
   padding: 1em;
+  width: 47%;
+  box-shadow: 10px 10px 5px grey;
+}
+.user-board{
+  padding: 1em;
+  /*padding-right: 2em;*/
+  position: relative;
+	display: inline-flex;
+  align-content:center;
+	width: 100%;
+}
+@viewport{
+    zoom: 1.0;
+    width: device-width;
 }

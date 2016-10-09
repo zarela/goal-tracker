@@ -7,7 +7,7 @@
 </div>
 
 <div class="user-board">
-  <div class="goals-board">
+  <div class="single-board">
     <h3>Your Goals</h3>
     <div>
     {{#each user.goals}}
@@ -42,6 +42,48 @@
     </div>
     <br>
   </div>
+
+  <!-- Rewards Start Here -->
+
+  <div class="single-board">
+    <h3>Your Rewards</h3>
+    <div>
+    {{#each user.goals}}
+      <div class="goal-show-each">
+        <p>&#9829 {{body}}: {{goalPoints}} points</p>
+
+        <div class="user-controllers">
+          <form action="./{{../user._id}}/show-goal/{{_id}}" method="post">
+              <input type="submit" value="Show">
+          </form>
+
+          <form method="POST" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
+              <input type="submit" value="Done">
+          </form>
+        </div>
+
+      </div>
+    {{/each}}
+    </div>
+    <br>
+    <div id="goal-new">
+        <form action="/users/{{user._id}}/goals" method="post">
+            <!-- <label>New Goal</label><br> -->
+            <input type="text" name="body" placeholder="Add new goal">
+
+            <input type="radio" name="goalPoints" value="1"> 1
+            <input type="radio" name="goalPoints" value="5"> 5
+            <input type="radio" name="goalPoints" value="10"> 10
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+    <br>
+  </div>
+
+
+
+
 </div>
 
 
