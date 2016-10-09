@@ -5,7 +5,7 @@ h1{
   font-family: 'Monofett', cursive;
   font-size: 48px;
 }
-h2,a{
+h2,h3,a{
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
 }
@@ -35,17 +35,20 @@ box-shadow: 0 10px #27496d;*/
 }
 .logout{
   position: absolute;
-  right: 0px;
+  /*display: flex;
+  align-self: flex-end;*/
+  right: 2em;
   padding-right: 2em;
+  padding-bottom: 2em;
 }
 .user-controllers{
   display: inline-flex;
 }
 .single-board{
   position: relative;
-  /*display: inline-flex;*/
-  align-content:center;
-
+  /*display:inline-block;*/
+  justify-content:space-around;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #6496c8;
   border: none;
   border-radius: 15px;
@@ -58,8 +61,9 @@ box-shadow: 0 10px #27496d;*/
   /*padding-right: 2em;*/
   position: relative;
 	display: inline-flex;
+  justify-content:space-between;
   align-content:center;
-	width: 100%;
+	width: 98%;
 }
 @viewport{
     zoom: 1.0;
