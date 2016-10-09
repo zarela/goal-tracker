@@ -33,3 +33,8 @@ border: none;
 border-radius: 15px;
 box-shadow: 0 10px #27496d;*/
 }
+.logout{
+  position: absolute;
+  right: 0px;
+  padding-right: 2em;
+}

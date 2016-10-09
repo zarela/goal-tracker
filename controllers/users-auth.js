@@ -80,7 +80,7 @@ router.post('/login',
 //RECORDING USERS GOALS
 //=====================================================
 
-//Creating and Saving new goles
+//Creating and Saving new goles on user's page
   router.post('/:id/goals', function(req, res){
     User.findById(req.params.id, function(err, user){
       user.goals.push(new Goal(
@@ -94,15 +94,6 @@ router.post('/login',
   });
 
 //Show goals page
-// router.get('/:userId/show-goal/:id', function(req, res){
-//   User.findById(req.params.userId, function(err, user){
-//     console.log(user);
-//     res.send("Created New Goal");
-//     // res.render('/users/show-goal', {user:user});
-//     // res.render('/users/show-goal.hbs');
-//   });
-// });
-
 router.post('/:userId/show-goal/:id', function(req, res){
   User.findById(req.params.userId, function(err, user){
     console.log(user);
@@ -114,7 +105,7 @@ router.post('/:userId/show-goal/:id', function(req, res){
 
 
 
-//Deleting goals
+//Deleting goals from users page
 router.delete('/:userId/goals/:id', function(req, res){
   User.findByIdAndUpdate(req.params.userId, {
     $pull: {
@@ -139,21 +130,21 @@ router.delete('/:userId/goals/:id', function(req, res){
   // });
 
   //Authentication
-  var authenticate = function(req, res, next) {
-    if (!req.user || req.user._id != req.params.id) {
+var authenticate = function(req, res, next) {
+  if (!req.user || req.user._id != req.params.id) {
       res.json({status: 401, message: 'unauthorized'})
-    } else {
-      next()
-    }
+  } else {
+    next()
   }
+}
 
   //User page without Authentication
-  router.get('/:id', function(req, res){
+router.get('/:id', function(req, res){
     User.findById(req.params.id, function(err, user){
       console.log(user);
       // res.send(author);
       res.render('users/user', {user:user});
     });
-  });
+});
 
 module.exports = router;
