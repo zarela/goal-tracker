@@ -69,3 +69,11 @@ box-shadow: 0 10px #27496d;*/
     zoom: 1.0;
     width: device-width;
 }
+footer{
+	background-color: #27496d;
+  color: white;
+	text-align: center;
+  padding: 1em;
+  font-family: 'Lemonada', cursive;
+  font-size: 16px;
+}
