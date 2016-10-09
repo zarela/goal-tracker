@@ -1,4 +1,25 @@
-<h1>Goal's Page</h1>
+<h2>Goal's Page</h2>
+
+<h3>Edit {{goal.body}}</h3>
+
+
+
+<!-- <div id="goal-edit">
+    <a href="/users/{{goal._id}}/edit">Edit Goal</a>
+    <a href="/users/{{user._id}}">Back</a>
+</div> -->
+
+<!-- <h2>Edit {{author.name}}</h2>
+<form action="/authors/{{author._id}}?_method=PUT" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name" value="{{author.name}}">
+  <input type="submit">
+</form>
+<br>
+<div><a href="/authors/{{author._id}}/delete">Delete Author</a></div> -->
+
+
+
 
 <form class="" action="/users/{{user._id}}/new" method="POST">
   <label>Goal:</label>
@@ -8,5 +29,5 @@
 <br>
 <br>
 
-
-<a href="/users/{{user._id}}">Back to My Page</a>
+<!-- <a href="/users/{{user._id}}">Back to My Page</a> -->
+<a href="/users/{{./user._id}}">Back to My Page</a>

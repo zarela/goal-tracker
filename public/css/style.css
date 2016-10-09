@@ -1,5 +1,7 @@
 body{
-  background: #c0f5ff;
+  /*background: #c0f5ff;*/
+  background: #eeede1
+
 }
 h1{
   font-family: 'Monofett', cursive;
@@ -12,10 +14,12 @@ h2,h3,a{
 .header{
   display: inline-flex;
   width: 100%;
-  background-color: #6496c8;
+  /*background-color: #6496c8;*/
+  background-color: #96d35f;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 10px #27496d;
+  /*box-shadow: 0 10px #27496d;*/
+  box-shadow: 0 10px #40661e;
 }
 img{
 padding: 1em;
@@ -25,6 +29,13 @@ padding: 1em;
   font-size: 24px;
   text-align: center;
   padding: 1em;
+  color:  #40661e;
+}
+h4{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color: black;
 }
 .login{
   /*color: #fff;
@@ -49,7 +60,8 @@ box-shadow: 0 10px #27496d;*/
   /*display:inline-block;*/
   justify-content:space-around;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: #6496c8;
+  /*background-color: #6496c8;*/
+  background-color: #96d35f;
   border: none;
   border-radius: 15px;
   padding: 1em;
@@ -70,10 +82,18 @@ box-shadow: 0 10px #27496d;*/
     width: device-width;
 }
 footer{
-	background-color: #27496d;
+	/*background-color: #27496d;*/
+  background-color: #40661e;
   color: white;
 	text-align: center;
   padding: 1em;
   font-family: 'Lemonada', cursive;
   font-size: 16px;
+
+  /*This makes footer to always stay at the end*/
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
 }

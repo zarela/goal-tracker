@@ -93,7 +93,8 @@ router.post('/login',
     });
   });
 
-//Show goals page
+//Show goals page //This works //Backup
+
 router.post('/:userId/show-goal/:id', function(req, res){
   User.findById(req.params.userId, function(err, user){
     console.log(user);
@@ -102,6 +103,33 @@ router.post('/:userId/show-goal/:id', function(req, res){
     res.render('users/show');
   });
 });
+
+//Rendering a single goal on the show page
+// router.post('/:userId/show-goal/:id', function(req, res){
+//   User.findByIdAndUpdate(req.params.userId, function(err, user){
+//
+//     console.log(user);
+//     res.render('users/show');
+//   });
+// });
+
+
+
+
+//working on edit single goals
+// router.get('/:id/edit', function(req, res){
+//   Goal.findById(req.params.id, function(err, author){
+//     res.redirect(`/users/show`);
+//   });
+// });
+//save goal edit
+// router.put('/:id', function(req, res){
+//   Goal.findByIdAndUpdate(req.params.id, {
+//     body: req.body.body
+//   }, {new:true}, function(err, goal){
+//     res.render(`/users/${user.id}`);
+//   });
+// });
 
 
 

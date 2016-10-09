@@ -1,14 +1,8 @@
 <h2>Hello {{user.username}}!</h2>
 
-<div class="logout">
-  <form method="POST" action="user/logout?_method=DELETE">
-    <button type="submit" name="Logout">Logout</button>
-  </form>
-</div>
-
 <div class="user-board">
   <div class="single-board">
-    <h3>Your Goals</h3>
+    <h3>Current Goals</h3>
     <div>
     {{#each user.goals}}
       <div class="goal-show-each">
@@ -86,6 +80,11 @@
 
 </div>
 
+<div class="logout">
+  <form method="POST" action="user/logout?_method=DELETE">
+    <button type="submit" name="Logout">Logout</button>
+  </form>
+</div>
 
 
 <!-- <h3>Your Goals</h3> -->
