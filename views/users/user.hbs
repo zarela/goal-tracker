@@ -4,7 +4,9 @@
   <div class="single-board">
     <h3>Current Goals</h3>
     <div>
-    {{#each user.goals}}
+      <img src="http://carton2garden.com/wp-content/themes/carton2garden/assets/img/1st-place.png" alt="Number 1 Logo" style="width:70px;height:75px;">
+
+      {{#each user.goals}}
       <div class="goal-show-each">
         <p>&#9829 {{body}}: {{goalPoints}} points</p>
 
@@ -19,7 +21,7 @@
         </div>
 
       </div>
-    {{/each}}
+      {{/each}}
     </div>
     <br>
     <div id="goal-new">
@@ -42,6 +44,7 @@
   <div class="single-board">
     <h3>Your Rewards</h3>
     <div>
+    <img src="http://www.clipartkid.com/images/758/trophy-icon-black-clipart-panda-free-clipart-images-H6GJZs-clipart.png" alt="Gold Trophy" style="width:75px;height:75px;">
     {{#each user.goals}}
       <div class="goal-show-each">
         <p>&#9829 {{body}}: {{goalPoints}} points</p>

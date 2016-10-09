@@ -67,3 +67,15 @@ body: String
 ### Controllers
 
 ### Views
+
+### Copy Rights
+
+Art used:
+Logo on header:
+http://vignette2.wikia.nocookie.net/inanimateinsanity/images/e/e2/TrophyPro.png
+
+Number 1 Medal on goal board:
+http://carton2garden.com/wp-content/themes/carton2garden/assets/img/1st-place.png
+
+Small trophy on rewards board:
+http://www.clipartkid.com/images/758/trophy-icon-black-clipart-panda-free-clipart-images-H6GJZs-clipart.png
