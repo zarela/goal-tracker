@@ -38,3 +38,11 @@ box-shadow: 0 10px #27496d;*/
   right: 0px;
   padding-right: 2em;
 }
+.user-controllers{
+  display: inline-flex;
+}
+.goals-board{
+  background-color: #6496c8;
+  border-radius: 15px;
+  padding: 1em;
+}
