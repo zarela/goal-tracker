@@ -78,16 +78,8 @@ router.post('/login',
     res.redirect('/');
   });
 
-//Showing all users *************************** WORKING!!!!
-// router.get('/allusers', function(req, res){
-//   User.find({}, function(err, users){
-//     res.render('users/allusers', {users:users});
-//   });
-// });
-
-
-//Trying to display more users *****************
-//Same as above but more specific
+//SHOWING ALL USERS ON USERS PAGE
+//============================================
 router.get('/allusers', (req, res) => {
   var query = User.find({});
 
@@ -98,7 +90,6 @@ router.get('/allusers', (req, res) => {
     console.log(err)
   });
 });
-
 
 
 //RECORDING USERS GOALS
@@ -205,7 +196,24 @@ var authenticate = function(req, res, next) {
   }
 }
 
-//User page without Authentication (?)
+//AUTHENTICATION FOR SHOWING USERS PAGE
+// router.get('/:id', function(req, res) {
+//   if (!req.user || req.user._id != req.params.id) {
+//     res.json({status: 401, message: 'unauthorized'})
+//   } else {
+//     var query = User.findById({_id: req.params.id})
+//     query.then(function(user) {
+//       res.json(user)
+//       // res.render('users/user', {user:user});
+//     })
+//     .catch(function(err) {
+//       res.json({message: 'nope' + err});
+//     });
+//   }
+// });
+
+
+//User page without Authentication (?) //THIS WORKS
 router.get('/:id', function(req, res){
     User.findById(req.params.id, function(err, user){
       console.log(user); //*****************
