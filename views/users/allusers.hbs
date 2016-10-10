@@ -1,9 +1,12 @@
 <h2> Other Users</h2>
 
-
+<h2>USERS</h2>
 {{#each users}}
-  <a href="/users/{{user._id}}">{{user.username}}</a>
-    {{#each user.goals}}
-      <p class="reminder">{{body}}</p>
-    {{/each}}
+  <ul>
+  <!-- <li>{{username}}</li> -->
+  <a href="/users/{{_id}}">Show {{username}}</a>
+  <!-- {{#each user.goals}}
+    <p class="points">{{body}}</p>
+  {{/each}} -->
+</ul>
 {{/each}}
