@@ -86,7 +86,6 @@ router.get('/allusers', function(req, res){
 });
 
 
-
 //RECORDING USERS GOALS
 //=====================================================
 //Creating and Saving new goles on user's page

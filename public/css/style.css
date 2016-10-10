@@ -25,6 +25,9 @@ p{
   /*box-shadow: 0 10px #27496d;*/
   box-shadow: 0 10px #40661e;
 }
+/*nav{
+  position: aboslute;
+}*/
 img{
 padding: 1em;
 }
@@ -94,7 +97,9 @@ footer{
   font-family: 'Lemonada', cursive;
   font-size: 16px;
   /*This makes footer to always stay at the end*/
-  position: absolute;
+  /*position: absolute;*/
+  position: fixed;
+  display: flex;
   right: 0;
   bottom: 0;
   left: 0;
