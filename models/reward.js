@@ -5,14 +5,11 @@ var uniqueValidator = require('mongoose-unique-validator'); //*****
 
 var Schema = mongoose.Schema;
 
-
 var rewardSchema = new Schema({
   rewardPoints: Number,
   achieved: Boolean,
-  body: String
+  bodyReward: String
 });
-
-
 
 
 rewardSchema.plugin(passportLocalMongoose);

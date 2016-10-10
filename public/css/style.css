@@ -11,6 +11,10 @@ h2,h3,a{
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
 }
+p{
+  font-family: 'Lemonada', cursive;
+  font-size: 14px;
+}
 .header{
   display: inline-flex;
   width: 100%;
@@ -89,7 +93,6 @@ footer{
   padding: 1em;
   font-family: 'Lemonada', cursive;
   font-size: 16px;
-
   /*This makes footer to always stay at the end*/
   position: absolute;
   right: 0;

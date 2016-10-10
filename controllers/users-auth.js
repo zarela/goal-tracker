@@ -85,7 +85,8 @@ router.post('/login',
     User.findById(req.params.id, function(err, user){
       user.goals.push(new Goal(
         {body: req.body.body,
-        goalPoints: req.body.goalPoints
+        goalPoints: req.body.goalPoints,
+        deadline: req.body.deadline
          }))
       user.save(function(err){
         res.redirect(`/users/${user.id}`);
@@ -94,7 +95,6 @@ router.post('/login',
   });
 
 //Show goals page //This works //Backup
-
 router.post('/:userId/show-goal/:id', function(req, res){
   User.findById(req.params.userId, function(err, user){
     console.log(user);
@@ -113,9 +113,6 @@ router.post('/:userId/show-goal/:id', function(req, res){
 //   });
 // });
 
-
-
-
 //working on edit single goals
 // router.get('/:id/edit', function(req, res){
 //   Goal.findById(req.params.id, function(err, author){
@@ -130,8 +127,6 @@ router.post('/:userId/show-goal/:id', function(req, res){
 //     res.render(`/users/${user.id}`);
 //   });
 // });
-
-
 
 //Deleting goals from users page
 router.delete('/:userId/goals/:id', function(req, res){
@@ -156,6 +151,38 @@ router.delete('/:userId/goals/:id', function(req, res){
   //     })
   //   })
   // });
+
+
+  //RECORDING USERS REWARDS
+  //===================================================== //maybe works
+  //Creating and Saving new rewards on user's page
+  router.post('/:id/rewards', function(req, res){
+    User.findById(req.params.id, function(err, user){
+      user.rewards.push(new Reward(
+        {bodyReward: req.body.bodyReward,
+        rewardPoints: req.body.rewardPoints,
+        achieved: req.body.achieved
+         }))
+      user.save(function(err){
+        res.redirect(`/users/${user.id}`);
+      });
+    });
+  });
+
+//Still missing show page for rewards
+
+//Deleting rewards from users page
+  router.delete('/:userId/rewards/:id', function(req, res){
+    User.findByIdAndUpdate(req.params.userId, {
+      $pull: {
+        rewards: {_id: req.params.id}
+      }
+    },function(err){
+      res.redirect(`/users/${req.params.userId}`);
+    });
+  });
+//End of rewards
+
 
   //Authentication
 var authenticate = function(req, res, next) {

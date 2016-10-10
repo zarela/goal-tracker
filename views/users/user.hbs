@@ -5,18 +5,17 @@
     <h3>Current Goals</h3>
     <div>
       <img src="http://carton2garden.com/wp-content/themes/carton2garden/assets/img/1st-place.png" alt="Number 1 Logo" style="width:70px;height:75px;">
-
       {{#each user.goals}}
       <div class="goal-show-each">
-        <p>&#9829 {{body}}: {{goalPoints}} points</p>
-
+        <p>&#9829 {{body}}: {{goalPoints}} points
+        <br>Due on: {{deadline}}</p>
         <div class="user-controllers">
           <form action="./{{../user._id}}/show-goal/{{_id}}" method="post">
               <input type="submit" value="Show">
           </form>
 
           <form method="POST" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
-              <input type="submit" value="Done">
+             <input type="submit" value="Done">
           </form>
         </div>
 
@@ -28,10 +27,11 @@
         <form action="/users/{{user._id}}/goals" method="post">
             <!-- <label>New Goal</label><br> -->
             <input type="text" name="body" placeholder="Add new goal">
-
             <input type="radio" name="goalPoints" value="1"> 1
             <input type="radio" name="goalPoints" value="5"> 5
             <input type="radio" name="goalPoints" value="10"> 10
+            <br>
+            <input type="date" name="deadline">
             <br>
             <input type="submit">
         </form>
@@ -45,16 +45,16 @@
     <h3>Your Rewards</h3>
     <div>
     <img src="http://www.clipartkid.com/images/758/trophy-icon-black-clipart-panda-free-clipart-images-H6GJZs-clipart.png" alt="Gold Trophy" style="width:75px;height:75px;">
-    {{#each user.goals}}
-      <div class="goal-show-each">
-        <p>&#9829 {{body}}: {{goalPoints}} points</p>
+    {{#each user.rewards}}
+      <div class="reward-show-each">
+        <p>&#9829 {{bodyReward}}: {{rewardPoints}} points</p>
 
         <div class="user-controllers">
-          <form action="./{{../user._id}}/show-goal/{{_id}}" method="post">
+          <form action="./{{../user._id}}/show-reward/{{_id}}" method="post">
               <input type="submit" value="Show">
           </form>
 
-          <form method="POST" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
+          <form method="POST" action="/users/{{../user._id}}/rewards/{{_id}}?_method=delete">
               <input type="submit" value="Done">
           </form>
         </div>
@@ -64,23 +64,19 @@
     </div>
     <br>
     <div id="goal-new">
-        <form action="/users/{{user._id}}/goals" method="post">
+        <form action="/users/{{user._id}}/rewards" method="post">
             <!-- <label>New Goal</label><br> -->
-            <input type="text" name="body" placeholder="Add new goal">
+            <input type="text" name="bodyReward" placeholder="Add new reward">
 
-            <input type="radio" name="goalPoints" value="1"> 1
-            <input type="radio" name="goalPoints" value="5"> 5
-            <input type="radio" name="goalPoints" value="10"> 10
+            <input type="radio" name="rewardPoints" value="1"> 10
+            <input type="radio" name="rewardPoints" value="5"> 50
+            <input type="radio" name="rewardPoints" value="10"> 100
             <br>
             <input type="submit">
         </form>
     </div>
     <br>
   </div>
-
-
-
-
 </div>
 
 <div class="logout">
@@ -88,72 +84,3 @@
     <button type="submit" name="Logout">Logout</button>
   </form>
 </div>
-
-
-<!-- <h3>Your Goals</h3> -->
-
-<!-- <div>
-{{#each user.goals}}
-  <div class="goal-show-each">
-    <p>&#9829 {{body}} {{goalPoints}}</p> -->
-
-<!-- maybe back -->
-<!-- <a href="/goals/{{user._id}}/show-goal">Show Goal</a> -->
-
-<!--
-    <form action="./{{../user._id}}/show-goal/{{_id}}" method="post">
-        <input type="submit" value="Show">
-    </form> -->
-
-    <!-- <form action="./{{../user._id}}/show-goal/1" method="POST">
-        <input type="submit" value="Show">
-    </form> -->
-
-
-
-<!-- This works -->
-
-    <!-- <form method="POST" action="/users/{{../user._id}}/goals/{{_id}}?_method=delete">
-        <input type="submit" value="Done">
-    </form>
-  </div>
-{{/each}}
-</div>
-<br> -->
-
-
-
-<!-- <div id="goal-new"> -->
-  <!-- <h3>Add New Goal</h3> -->
-    <!-- <form action="/users/{{user._id}}/goals" method="post">
-        <label>New Goal</label><br>
-        <input type="text" name="body">
-
-        <input type="radio" name="goalPoints" value="1"> 1
-        <input type="radio" name="goalPoints" value="5"> 5
-        <input type="radio" name="goalPoints" value="10"> 10
-
-        <br>
-        <input type="submit">
-    </form>
-</div>
-<br> -->
-
-
-<!-- <a id="newGoal" href="/goals/{{user._id}}/show-goal">Show Goal</a> -->
-<!-- {{#each authors}}
-    <div class="goal">
-        <div class="goalTitle"><a href="/user/{{_id}}">{{name}}</a></div>
-            {{#each reminders}}
-                <p class="goal">{{body}}</p>
-            {{/each}}
-            <br>
-        </div>
-{{/each}} -->
-
-<!-- <br>
-<br>
-
-<form method="POST" action="user/logout?_method=DELETE">
-  <button type="submit" name="Logout">Logout</button>
-</form> -->

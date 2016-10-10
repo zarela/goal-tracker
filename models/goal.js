@@ -12,8 +12,6 @@ var goalSchema = new Schema({
   body: String
 });
 
-
-
 goalSchema.plugin(passportLocalMongoose);
 goalSchema.plugin(uniqueValidator); //************
 //goalSchema.plugin(passportLocalMongoose); //Maybe back
