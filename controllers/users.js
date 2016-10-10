@@ -212,7 +212,6 @@ var authenticate = function(req, res, next) {
 //   }
 // });
 
-
 //User page without Authentication (?) //THIS WORKS
 router.get('/:id', function(req, res){
     User.findById(req.params.id, function(err, user){
