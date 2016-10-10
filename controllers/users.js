@@ -78,12 +78,27 @@ router.post('/login',
     res.redirect('/');
   });
 
-//Showing all users ***************************
-router.get('/allusers', function(req, res){
-  User.find({}, function(err, users){
-    res.render('users/allusers', {users:users});
+//Showing all users *************************** WORKING!!!!
+// router.get('/allusers', function(req, res){
+//   User.find({}, function(err, users){
+//     res.render('users/allusers', {users:users});
+//   });
+// });
+
+
+//Trying to display more users *****************
+//Same as above but more specific
+router.get('/allusers', (req, res) => {
+  var query = User.find({});
+
+  query.then(function(users) {
+    res.render('users/allusers', { users: users, user: req.user})
+  })
+  .catch(function(err) {
+    console.log(err)
   });
 });
+
 
 
 //RECORDING USERS GOALS
