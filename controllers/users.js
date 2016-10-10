@@ -78,6 +78,15 @@ router.post('/login',
     res.redirect('/');
   });
 
+//Showing all users ***************************
+router.get('/allusers', function(req, res){
+  User.find({}, function(err, users){
+    res.render('users/allusers', {users:users});
+  });
+});
+
+
+
 //RECORDING USERS GOALS
 //=====================================================
 //Creating and Saving new goles on user's page
@@ -94,7 +103,7 @@ router.post('/login',
     });
   });
 
-//Show goals page //This works //=============BE BACK
+//Show goals page //******** STILL IN PROGRESS
 router.get('/:userId/edit/:id', function(req, res){
   // console.log(req.params._id);
   User.findById(req.params.userId, function(err, goal){
@@ -150,7 +159,15 @@ router.post('/:id/rewards', function(req, res){
   });
 });
 
-//Still missing show page for rewards
+//Show goals page //******** STILL IN PROGRESS
+// router.get('/:userId/edit/:id', function(req, res){
+//   // console.log(req.params._id);
+//   User.findById(req.params.userId, function(err, goal){
+//     console.log("Goals"+ goal.goals["body"]);
+//     res.render('users/show', {user: goal});
+//   });
+// });
+
 
 //Deleting rewards from users page
 router.delete('/:userId/rewards/:id', function(req, res){

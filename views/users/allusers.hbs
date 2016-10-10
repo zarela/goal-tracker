@@ -1,10 +1,9 @@
-<h1> Other Users</h1>
+<h2> Other Users</h2>
 
-<!-- {{users}} -->
 
-<!-- {{#each users}}
-  <ul>
-    <li>{{username}}</li>
-    <a href="/users/{{_id}}">show</a>
-  </ul>
-{{/each}} -->
+{{#each users}}
+  <a href="/users/{{user._id}}">{{user.username}}</a>
+    {{#each user.goals}}
+      <p class="reminder">{{body}}</p>
+    {{/each}}
+{{/each}}
