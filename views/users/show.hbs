@@ -1,6 +1,7 @@
 <h2>Goal's Page</h2>
 
-<h3>Edit {{goal.body}}</h3>
+<!-- <h3>Edit {{user}}</h3> -->
+<h2>Edit {{user.goals}}</h2>
 
 <!-- <div id="goal-edit">
     <a href="/users/{{goal._id}}/edit">Edit Goal</a>
@@ -17,9 +18,9 @@
 <div><a href="/authors/{{author._id}}/delete">Delete Author</a></div> -->
 
 
-<form class="" action="/users/{{user._id}}/new" method="POST">
+<form class="" action="/users/{{user._id}}/edit" method="POST">
   <label>Goal:</label>
-  <input type="text" name="name" value="{{user.goal.body}}">
+  <input type="text" name="name" value="{{user.body}}">
   <input type="submit">
 </form>
 <br>

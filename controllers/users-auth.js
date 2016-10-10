@@ -93,32 +93,25 @@ router.post('/login',
     });
   });
 
-//Show goals page //This works //Backup
-router.post('/:userId/show-goal/:id', function(req, res){
-  User.findById(req.params.userId, function(err, user){
-    console.log(user);
-    // res.send("Created New Goal");
-    // res.render('/users/show-goal', {user:user});
-    res.render('users/show');
+//Show goals page //This works //=============BE BACK
+router.get('/:userId/edit/:id', function(req, res){
+  // console.log(req.params._id);
+  User.findById(req.params.userId, function(err, goal){
+    // Goal.findById(req.params.id, function(err, goal){
+  // User.findOne({_id:req.params.id}, function(err, goal){
+    console.log("Goals"+ goal.goals["body"]);
+    res.render('users/show', {user: goal});
   });
 });
-
-//Rendering a single goal on the show page
-// router.post('/:userId/show-goal/:id', function(req, res){
-//   User.findByIdAndUpdate(req.params.userId, function(err, user){
-//
-//     console.log(user);
-//     res.render('users/show');
-//   });
-// });
+//===================================================
 
 //working on edit single goals
 // router.get('/:id/edit', function(req, res){
-//   Goal.findById(req.params.id, function(err, author){
-//     res.redirect(`/users/show`);
+//   Goal.findOne(req.params.id, function(err, user){
+//     res.redirect('/users/show', {user:user});
 //   });
 // });
-//save goal edit
+// save goal edit
 // router.put('/:id', function(req, res){
 //   Goal.findByIdAndUpdate(req.params.id, {
 //     body: req.body.body
@@ -127,6 +120,7 @@ router.post('/:userId/show-goal/:id', function(req, res){
 //   });
 // });
 
+//delete//=======================================
 //Deleting goals from users page
 router.delete('/:userId/goals/:id', function(req, res){
   User.findByIdAndUpdate(req.params.userId, {
@@ -197,7 +191,7 @@ var authenticate = function(req, res, next) {
   //User page without Authentication (?)
 router.get('/:id', function(req, res){
     User.findById(req.params.id, function(err, user){
-      console.log(user);
+      // console.log(user); //*****************
       // res.send(author);
       res.render('users/user', {user:user});
     });
