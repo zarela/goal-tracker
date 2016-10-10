@@ -1,4 +1,7 @@
-# goal-tracker-app: Goal Digger
+# goal-tracker-app
+
+## Application Name: Goal Digger
+
 Goal tracker application with points and rewards system
 
 [Heroku Link] (https://goal-digger.herokuapp.com/)
