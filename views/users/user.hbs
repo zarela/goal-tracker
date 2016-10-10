@@ -25,7 +25,6 @@
     <br>
     <div id="goal-new">
         <form action="/users/{{user._id}}/goals" method="post">
-            <!-- <label>New Goal</label><br> -->
             <input type="text" name="body" placeholder="Add new goal">
             <input type="radio" name="goalPoints" value="1"> 1
             <input type="radio" name="goalPoints" value="5"> 5
@@ -39,15 +38,14 @@
     <br>
   </div>
 
-  <!-- Rewards Start Here -->
-
+  <!-- Rewards Board Start Here -->
   <div class="single-board">
     <h3>Your Rewards</h3>
     <div>
     <img src="http://www.clipartkid.com/images/758/trophy-icon-black-clipart-panda-free-clipart-images-H6GJZs-clipart.png" alt="Gold Trophy" style="width:75px;height:75px;">
     {{#each user.rewards}}
       <div class="reward-show-each">
-        <p>&#9829 {{bodyReward}}: {{rewardPoints}} points</p>
+        <p>&#9829 {{bodyReward}}: Requires {{rewardPoints}} points</p>
 
         <div class="user-controllers">
           <form action="./{{../user._id}}/show-reward/{{_id}}" method="post">
@@ -65,9 +63,7 @@
     <br>
     <div id="goal-new">
         <form action="/users/{{user._id}}/rewards" method="post">
-            <!-- <label>New Goal</label><br> -->
             <input type="text" name="bodyReward" placeholder="Add new reward">
-
             <input type="radio" name="rewardPoints" value="1"> 10
             <input type="radio" name="rewardPoints" value="5"> 50
             <input type="radio" name="rewardPoints" value="10"> 100

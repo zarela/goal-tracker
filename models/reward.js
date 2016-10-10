@@ -11,11 +11,8 @@ var rewardSchema = new Schema({
   bodyReward: String
 });
 
-
 rewardSchema.plugin(passportLocalMongoose);
 rewardSchema.plugin(uniqueValidator); //************
-//goalSchema.plugin(passportLocalMongoose); //Maybe back
-//rewardSchema.plugin(passportLocalMongoose); //Maybe back
 
 var Reward = mongoose.model("Reward", rewardSchema);
 

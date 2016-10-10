@@ -79,7 +79,6 @@ router.post('/login',
 
 //RECORDING USERS GOALS
 //=====================================================
-
 //Creating and Saving new goles on user's page
   router.post('/:id/goals', function(req, res){
     User.findById(req.params.id, function(err, user){
@@ -152,39 +151,41 @@ router.delete('/:userId/goals/:id', function(req, res){
   //   })
   // });
 
+//End of goals
+//====================================================
 
-  //RECORDING USERS REWARDS
-  //===================================================== //maybe works
-  //Creating and Saving new rewards on user's page
-  router.post('/:id/rewards', function(req, res){
-    User.findById(req.params.id, function(err, user){
-      user.rewards.push(new Reward(
-        {bodyReward: req.body.bodyReward,
-        rewardPoints: req.body.rewardPoints,
-        achieved: req.body.achieved
-         }))
-      user.save(function(err){
-        res.redirect(`/users/${user.id}`);
-      });
+//RECORDING USERS REWARDS
+//=====================================================
+//Creating and Saving new rewards on user's page
+router.post('/:id/rewards', function(req, res){
+  User.findById(req.params.id, function(err, user){
+    user.rewards.push(new Reward(
+      {bodyReward: req.body.bodyReward,
+      rewardPoints: req.body.rewardPoints,
+      achieved: req.body.achieved
+       }))
+    user.save(function(err){
+      res.redirect(`/users/${user.id}`);
     });
   });
+});
 
 //Still missing show page for rewards
 
 //Deleting rewards from users page
-  router.delete('/:userId/rewards/:id', function(req, res){
-    User.findByIdAndUpdate(req.params.userId, {
-      $pull: {
-        rewards: {_id: req.params.id}
-      }
-    },function(err){
-      res.redirect(`/users/${req.params.userId}`);
-    });
+router.delete('/:userId/rewards/:id', function(req, res){
+  User.findByIdAndUpdate(req.params.userId, {
+    $pull: {
+      rewards: {_id: req.params.id}
+    }
+  },function(err){
+    res.redirect(`/users/${req.params.userId}`);
   });
+});
 //End of rewards
+//=======================================================
 
-
-  //Authentication
+//Authentication
 var authenticate = function(req, res, next) {
   if (!req.user || req.user._id != req.params.id) {
       res.json({status: 401, message: 'unauthorized'})
@@ -193,7 +194,7 @@ var authenticate = function(req, res, next) {
   }
 }
 
-  //User page without Authentication
+  //User page without Authentication (?)
 router.get('/:id', function(req, res){
     User.findById(req.params.id, function(err, user){
       console.log(user);

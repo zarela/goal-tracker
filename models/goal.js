@@ -14,12 +14,7 @@ var goalSchema = new Schema({
 
 goalSchema.plugin(passportLocalMongoose);
 goalSchema.plugin(uniqueValidator); //************
-//goalSchema.plugin(passportLocalMongoose); //Maybe back
-//rewardSchema.plugin(passportLocalMongoose); //Maybe back
-
 
 var Goal = mongoose.model("Goal", goalSchema);
-
-
 
 module.exports = Goal;
