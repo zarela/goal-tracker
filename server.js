@@ -71,7 +71,8 @@ passport.deserializeUser(User.deserializeUser());
 //ROUTING MIDDLEWARE
 //==================================
 app.use('/', require('./controllers/index.js'));
-app.use('/users', require('./controllers/users-auth.js'));//*****maybe
+// app.use('/users', require('./controllers/users-auth.js'));//*****maybe
+app.use('/users', require('./controllers/users.js'));
 
 // SERVER LISTENING ON PORT
 // ==================================

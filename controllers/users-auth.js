@@ -1,3 +1,5 @@
+/*
+
 //ROUTER SETUP
 //=========================================
 var express = require('express');
@@ -121,7 +123,7 @@ router.get('/:userId/edit/:id', function(req, res){
 // });
 
 //delete//=======================================
-//Deleting goals from users page
+// Deleting goals from users page *****THIS WORKS
 router.delete('/:userId/goals/:id', function(req, res){
   User.findByIdAndUpdate(req.params.userId, {
     $pull: {
@@ -131,19 +133,6 @@ router.delete('/:userId/goals/:id', function(req, res){
     res.redirect(`/users/${req.params.userId}`);
   });
 });
-
-  // router.post('/:id/new', function(req, res){
-  //   var newGoal = req.body;
-  //   User.findOneAndUpdate(newGoal, function(req, res){
-  //     user.goals.push(new Goal(
-  //       {body: req.body.body}
-  //     ));
-  //     user.save(function(err){
-  //       res.redirect('/users/' + req.params.id);
-  //       // res.redirect(`/users/${user.id}`);
-  //     })
-  //   })
-  // });
 
 //End of goals
 //====================================================
@@ -188,11 +177,10 @@ var authenticate = function(req, res, next) {
   }
 }
 
-  //User page without Authentication (?)
+//User page without Authentication (?)
 router.get('/:id', function(req, res){
     User.findById(req.params.id, function(err, user){
-      // console.log(user); //*****************
-      // res.send(author);
+      console.log(user); //*****************
       res.render('users/user', {user:user});
     });
 });
