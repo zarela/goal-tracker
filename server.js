@@ -1,6 +1,6 @@
 // MODULES
 // ==================================
-pry = require('pryjs')
+// var pry = require('pryjs');
 var express = require('express');
 var mongoose = require('mongoose');
 var logger = require('morgan');

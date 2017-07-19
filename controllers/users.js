@@ -196,6 +196,8 @@ var authenticate = function(req, res, next) {
   }
 }
 
+
+
 //AUTHENTICATION FOR SHOWING USERS PAGE
 // router.get('/:id', function(req, res) {
 //   if (!req.user || req.user._id != req.params.id) {

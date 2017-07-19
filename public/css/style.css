@@ -99,7 +99,6 @@ footer{
   /*This makes footer to always stay at the end*/
   /*position: absolute;*/
   position: fixed;
-  /*display: flex;*/
   right: 0;
   bottom: 0;
   left: 0;
